@@ -13,7 +13,7 @@ interface custom extends InputHTMLAttributes<HTMLInputElement> {
 const Input: React.FC<custom> = props => {
   return (
     <div className="forInput">
-      <label htmlFor="name" className="label-name">
+      <label htmlFor={props.name} className="label-name">
         <span className="content-name">{props.label}</span>
       </label>
       {props.tipo == "input" ? (
@@ -31,6 +31,7 @@ const Input: React.FC<custom> = props => {
             width: props.size + "%",
             backgroundColor: props.cor,
           }}
+          type="submit"
         >
           {props.buttonTitle}
         </button>
