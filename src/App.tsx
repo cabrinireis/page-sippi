@@ -12,6 +12,22 @@ function App() {
   const [Justificativa, setJustificativa] = useState("");
   const [UploadA, setUploadA] = useState<File[]>([]);
   // const [UploadB, setUploadB] = useState<File[]>([]);
+  interface interfaceData {
+    item: string;
+    valordispo: string;
+    valorsolici: string;
+    endereco: string;
+    descricao_item: string;
+    justificativa: string;
+    uploadA: [];
+  }
+
+  const [getData, setGetdata] = useState<interfaceData>();
+
+  // get data
+  fetch(`url`).then(response => {
+    setGetdata(response);
+  });
 
   const dados = [
     {
@@ -28,7 +44,6 @@ function App() {
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    console.log(JSON.stringify(dados));
     let url = "cadastro";
     fetch(url, {
       method: "post",
